@@ -81,7 +81,13 @@
 									<div class="header-nav header-nav-stripe">
 										<div class="header-nav-main header-nav-main-square header-nav-main-effect-1 header-nav-main-sub-effect-1">
 											<nav class="collapse">
-												
+												<ul class = "nav nav-pills" id="mainNav">
+													<li class="">
+														<a class="nav-link" href="<?= @base_url('registration'); ?>">
+															Registration
+														</a>
+													</li>
+												</ul>
 											</nav>
 										</div>
 										<ul class="header-social-icons social-icons d-none d-sm-block">
@@ -100,15 +106,26 @@
 				</div>
 			</header>
 		<div role="main" class="main mt-5">
-			<!-- <section class="page-header page-header-center page-header-more-padding page-header-no-title-border">
+			<?php if(isset($partialData['header'])){?>
+			<section class="page-header">
 				<div class="container">
 					<div class="row">
 						<div class="col">
-							<h1>Register for your Membership today</h1>
+							<ul class="breadcrumb">
+								<li><a href="#">Home</a></li>
+								<li class="active">Donations</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<h1>Donations</h1>
+							<small style="font-size: 16px;">Make that difference with anything you got</small>
 						</div>
 					</div>
 				</div>
-			</section> -->
+			</section>
+			<?php } ?>
 			<div class="container">
 				<!-- Add tabs here -->
 				<?php if ($partial): ?>
