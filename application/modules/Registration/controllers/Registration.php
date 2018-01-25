@@ -5,6 +5,7 @@ class Registration extends MY_Controller{
 	{
 		parent::__construct();
 		$this->load->library('Mpesa');
+		$this->load->library('Mail');
 	}
 
 	function index(){
@@ -97,7 +98,14 @@ class Registration extends MY_Controller{
 
 	function test($transaction_code = null){
 		// $this->mpesa->generate_token();
-		echo $this->mpesa->sendRequest("254725160399", 1000, "123");
+		// echo $this->mpesa->sendRequest("254725160399", 1000, "123");
+
+		$recepient = new StdClass;
+
+		$recepient->email = "c.otaalo@gmail.com";
+		$recepient->name = "Chrispine Otaalo";
+
+		$this->mail->send("Sample", $recepient, "This is a sample email from Kilimani");
 	}
 
 	function callback(){
