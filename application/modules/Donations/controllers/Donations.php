@@ -33,13 +33,27 @@ class Donations extends MY_Controller{
 
 			$this->db->insert('donations', $donation);
 			$this->session->set_flashdata('success', 'Your donation has successfully been captured');
-			redirect('donations/completedonation/' . $donation->donation_no);
+
+			$cart_data = [
+				'id'		=>	$donation->donation_no,
+				'qty'		=>	1,
+				'price'		=>	0,
+				'name'		=>	$firstname . " " . $lastname,
+				'options'	=>	[
+					'type'	=>	'Donation'
+				]
+			];
+
+			$this->cart->insert($cart_data);
+			redirect('donations/completedonation/');
 		}
 	}
 
-	function completedonation($donation_no){
+	function completedonation(){
 		$data = [];
-		$data['donation_no'] = $donation_no;
+		$cart = $this->cart->contents();
+		$cart_content = end($cart);
+		$data['donation_no'] = $cart_content['id'];
 		$this->template
 			->setPartial('Donations/complete_v', $data)
 			->membership();

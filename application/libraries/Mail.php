@@ -15,11 +15,20 @@ class Mail{
 		$this->_mailer = new Swift_Mailer($this->_transport);
 	}
 
-	function send($subject, $to, $message){
+	function send($subject, $to, $message, $attachments = []){
 		$message = (new Swift_Message($subject))
 					->setFrom([$this->getConfigItem('from_email') => $this->getConfigItem('from_name')])
 					->setTo([$to->email => $to->name])
-					->setBody($message);
+					->setBody($message, 'text/html');
+		if(count($attachments) > 0){
+			foreach($attachments as $attachment){
+				if(!$attachment->is_path){
+					$message->attach(new Swift_Attachment($attachment->file, $attachment->file_name, $attachment->mime_type));
+				}else{
+					$message->attach(Swift_Attachment::fromPath($attachment->file));
+				}
+			}
+		}
 
 		$result = $this->_mailer->send($message);
 

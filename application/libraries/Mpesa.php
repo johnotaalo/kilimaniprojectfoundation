@@ -11,7 +11,7 @@ class Mpesa{
 	public function sendRequest($phone, $amount, $account){
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $this->getConfigItem('endpoint'));
-		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$this->getConfigItem('access_token')));
+		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$this->generate_token()));
 		$timestamp =date('YmdHis');
 		$passkey = $this->getConfigItem('passkey');
 		$short_code = $this->getConfigItem('short_code');
@@ -25,7 +25,7 @@ class Mpesa{
 			"PartyA" => $phone,
 			"PartyB" => $short_code,
 			"PhoneNumber" => $phone,
-			"CallBackURL" => "http://13a9d683.ngrok.io/kilimani/registration/callback",
+			"CallBackURL" => "http://a768becf.ngrok.io/kilimani/registration/callback",
 			"AccountReference" => $account,
 			"TransactionDesc" => "Paybill Online"
 		];
@@ -55,13 +55,12 @@ class Mpesa{
 		$app_consumer_key = $this->getConfigItem('consumer_key');
 	    $app_consumer_secret = $this->getConfigItem('consumer_secret');
 		$credentials = base64_encode($app_consumer_key.':'.$app_consumer_secret);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization: Basic '.$credentials, 'Accept: application/json')); //setting a custom header
-		curl_setopt($curl, CURLOPT_HEADER, true);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials)); //setting a custom header
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 		$curl_response = curl_exec($curl);
 
-		return json_encode($curl_response);
+		return json_decode($curl_response, true)['access_token'];
 	}
 
 	private function getConfigItem($key){

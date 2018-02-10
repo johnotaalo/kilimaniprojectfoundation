@@ -12,7 +12,7 @@
 								</span>
 							</span>
 						</span>									
-						<p class="mb-0 pb-0">Individual Registration</p>
+						<p class="mb-0 pb-0">Individual Membership</p>
 					</a>
 				</li>
 				<li class="nav-item">
@@ -24,7 +24,7 @@
 								</span>
 							</span>
 						</span>									
-						<p class="mb-0 pb-0">Corporate Registration</p>
+						<p class="mb-0 pb-0">Corporate Membership</p>
 					</a>
 				</li>
 
@@ -37,7 +37,7 @@
 								</span>
 							</span>
 						</span>									
-						<p class="mb-0 pb-0">Donate to Us</p>
+						<p class="mb-0 pb-0">Donations</p>
 					</a>
 				</li>
 			</ul>
@@ -108,7 +108,7 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label">Please upload a passport photo of yourself</label>
-							<input type="file" name="passport_photo" class="form-control" required />
+							<input type="file" name="passport_photo" class="form-control" />
 						</div>
 
 						<div class="form-group">

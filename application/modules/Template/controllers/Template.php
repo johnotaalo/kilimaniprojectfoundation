@@ -33,6 +33,22 @@ class Template extends MX_Controller{
 		$this->load->view('Template/membership_template_v', $data);
 	}
 
+	function admin(){
+		$data = [];
+		$data['page_css'] = $this->assets->css;
+		$data['page_js'] = $this->assets->js;
+		$data['javascript_file'] = $this->assets->javascript_file;
+		$data['javascript_data'] = $this->assets->javascript_data;
+
+		$data['pagetitle'] = $this->pageTitle;
+		$data['pagedescription'] = $this->pageDescription;
+
+		$data['partial'] = $this->contentView;
+		$data['partialData'] = $this->contentViewData;
+
+		$this->load->view('Template/admin_template_v', $data);
+	}
+
 	function setPageTitle($page_title = ""){
 		$this->pageTitle = $page_title;
 

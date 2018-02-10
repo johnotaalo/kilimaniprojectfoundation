@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['consumer_key'] = "yZE7oNf27Q1JfnXzyBtiTg7e0Dw9prcU";
 $config['consumer_secret'] = "9iTMty5R221eZGL6";
-$config['access_token'] = "conXHTQGMmCf7ZV8TQgkUusZApej";
+$config['access_token'] = "VjFkOeQBWxjR8gWJGmS7BJZtxTTP";
 
 $config['endpoint'] = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 

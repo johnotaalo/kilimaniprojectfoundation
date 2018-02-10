@@ -20,11 +20,17 @@
 			<li>You will then receive a message from MPESA indicating that the transaction has been completed or cancelled depending on your account balance.</li>
 			<li>That's it!</li>
 		</ol>
-		<button id="make-payment" href="#" class="btn btn-sm mt-4 btn-primary"><i class="fa fa-spin"></i>&nbsp;Make Payment!</button><span class="arrow hlb" style="top: -15px; left: -24px;"></span>
+		<!-- <button id="make-payment" href="#" class="btn btn-sm mt-4 btn-primary"><i class="fa fa-spin"></i>&nbsp;Make Payment!</button><span class="arrow hlb" style="top: -15px; left: -24px;"></span> -->
 
 		<!-- <button id="confirm-transaction" class="btn btn-sm mt-4 btn-success"><i class="fa fa-spin"></i>&nbsp;Confirm Transaction</button> -->
 	</div>
 	<div class="col-md-6">
 		<h3>If you would like to pay using another Safaricom number</h3>
+
+		<p>Please enter your transaction code to complete the payment</p>
+		<div class="form-group">
+			<input name = "code" type="text" class="form-control" placeholder = "Transaction Code">
+			<a class = 'btn btn-primary btn-sm mt-2' href = '#' id = 'add-code'><i class="fa fa-spin"></i>&nbsp;Add code</a>
+		</div>
 	</div>
 </div>

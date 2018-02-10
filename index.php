@@ -1,5 +1,9 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+if (ini_get('date.timezone') == '') {
+    date_default_timezone_set('Africa/Nairobis');
+}
+define('ROOT_DIR', __DIR__);
 /**
  * CodeIgniter
  *

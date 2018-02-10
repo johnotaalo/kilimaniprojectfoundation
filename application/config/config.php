@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $config['base_url'] = '/kilimani/';
 $config['assets_url'] = $config['base_url'] . 'assets/';
-$config['server_url'] = "http://eqa.app:8000" . $config['base_url'];
+$config['server_url'] = " http://e5a4de54.ngrok.io" . $config['base_url'];
 
 /*
 |--------------------------------------------------------------------------

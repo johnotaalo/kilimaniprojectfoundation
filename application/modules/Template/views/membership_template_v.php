@@ -70,7 +70,7 @@
 							<div class="header-column">
 								<div class="header-row">
 									<div class="header-logo">
-										<a href="index.html">
+										<a href="http://kilimani.co.ke">
 											<img alt="Porto" width="55" src="<?= @$this->config->item('assets_url'); ?>img/Logo.png">
 										</a>
 									</div>
@@ -82,18 +82,18 @@
 										<div class="header-nav-main header-nav-main-square header-nav-main-effect-1 header-nav-main-sub-effect-1">
 											<nav class="collapse">
 												<ul class = "nav nav-pills" id="mainNav">
-													<li class="">
+													<!-- <li class="">
 														<a class="nav-link" href="<?= @base_url('registration'); ?>">
 															Registration
 														</a>
-													</li>
+													</li> -->
 												</ul>
 											</nav>
 										</div>
 										<ul class="header-social-icons social-icons d-none d-sm-block">
-											<li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-											<li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-											<li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+											<li class="social-icons-facebook"><a href="https://www.facebook.com/KilimaniProjectFoundation/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+											<li class="social-icons-twitter"><a href="https://twitter.com/kilimanispeaks" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+											<!-- <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li> -->
 										</ul>
 										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
 											<i class="fa fa-bars"></i>
