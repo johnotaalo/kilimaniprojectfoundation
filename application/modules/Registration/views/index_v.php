@@ -156,34 +156,60 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label">Names of individuals</label>
-							<a class="btn btn-xs btn-default pull-right"><i class="fa fa-plus"></i>&nbsp;Add</a>
-							<table class="table">
-								<tbody id="names_of_individuals">
-									<tr>
-										<td>
-											<input type="text" placeholder="First Name" name="first_name" class="form-control">
-										</td>
-										<td>
-											<input type="text" placeholder="Last Name" name="last_name" class="form-control">
-										</td>
-										<td>
-											<input type="text" placeholder="Email Address" name="email_address" class="form-control">
-										</td>
-										<td>
-											<input type="text" placeholder="Phone Number" name="phone_number" class="form-control">
-										</td>
-										<td>
-											<input type="date" placeholder="Date of Birth" name="dob" class="form-control">
-										</td>
-										<td>
-											<input type="file" name="" class="form-control">
-										</td>
-										<td>
-											<a><i class="fa fa-times"></i></a>
-										</td>
-									</tr>
-								</tbody>
-							</table>
+							<a class="btn btn-xs btn-default pull-right" id = 'add-corporate'><i class="fa fa-plus"></i>&nbsp;Add</a>
+							<div class="table-responsive">
+								<table class="table">
+									<tbody id="names_of_individuals">
+									<tr class = 'copy'>
+											<td>
+												<input type="text" placeholder="First Name" name="first_name[]" class="form-control">
+											</td>
+											<td>
+												<input type="text" placeholder="Last Name" name="last_name[]" class="form-control">
+											</td>
+											<td>
+												<input type="text" placeholder="Email Address" name="email_address[]" class="form-control">
+											</td>
+											<td>
+												<input type="text" placeholder="Phone Number" name="phone_number[]" class="form-control">
+											</td>
+											<td>
+												<input type="date" placeholder="Date of Birth" name="dob[]" class="form-control">
+											</td>
+											<!-- <td>
+												<input type="file" name="" class="form-control">
+											</td> -->
+											<td>
+												<a><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="text" placeholder="First Name" name="first_name" class="form-control">
+											</td>
+											<td>
+												<input type="text" placeholder="Last Name" name="last_name" class="form-control">
+											</td>
+											<td>
+												<input type="text" placeholder="Email Address" name="email_address" class="form-control">
+											</td>
+											<td>
+												<input type="text" placeholder="Phone Number" name="phone_number" class="form-control">
+											</td>
+											<td>
+												<input type="date" placeholder="Date of Birth" name="dob" class="form-control">
+											</td>
+											<!-- <td>
+												<input type="file" name="" class="form-control">
+											</td> -->
+											<td>
+												<a><i class="fa fa-times"></i></a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
 						</div>
 
 						<div class="form-group">

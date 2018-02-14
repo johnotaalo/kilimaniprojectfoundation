@@ -53,6 +53,9 @@
 		});
 	});
 
+	$('#add-corporate').on('click', function(){
+	});
+
 	$('#make-payment').on('click', function(){
 		$(this).find('i.fa').addClass('fa-spinner');
 		$(this).prop('disabled', true);

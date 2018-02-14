@@ -7,4 +7,4 @@
 
 <p><?= @date('d-m-Y'); ?></p>
 
-Dear <?= @$firstname; ?>, <?= @$lastname; ?>,
+Dear <?= @$firstname; ?> <?= @$lastname; ?>,

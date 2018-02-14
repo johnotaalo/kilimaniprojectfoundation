@@ -93,7 +93,7 @@
 										<ul class="header-social-icons social-icons d-none d-sm-block">
 											<li class="social-icons-facebook"><a href="https://www.facebook.com/KilimaniProjectFoundation/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
 											<li class="social-icons-twitter"><a href="https://twitter.com/kilimanispeaks" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-											<!-- <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li> -->
+											<li class="social-icons-instagram"><a href="http://www.instagram.com/kilimanispeaks" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
 										</ul>
 										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
 											<i class="fa fa-bars"></i>
