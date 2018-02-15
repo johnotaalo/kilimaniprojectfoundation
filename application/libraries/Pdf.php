@@ -11,36 +11,38 @@ class Pdf{
                     'margin_footer' =>  0,
                     'default_font' => 'taiheritage',
                 'debug' =>  false];
-        // $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
-        // $fontDirs = $defaultConfig['fontDir'];
+        $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
+        $fontDirs = $defaultConfig['fontDir'];
         
-        // $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
-        // $fontData = $defaultFontConfig['fontdata'];
+        $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
+        $fontData = $defaultFontConfig['fontdata'];
 
-        // $config['fontDir'] = str_replace('/', '\\', str_replace('\\', '/', ROOT_DIR) . "/assets/fonts/");
-        // $config['fontdata'] = [
-        //     'open_sans'     =>  [
-        //         'R'     =>  'open-sans\OpenSans-Regular.ttf',
-        //         'I'     =>  'open-sans\OpenSans-Italic.ttf',
-        //         'B'     =>  'open-sans\OpenSans-Bold.ttf',
-        //         'BI'    =>  'open-sans\OpenSans-BoldItalic.ttf',
-        //     ],
-        //     'kenyan_coffee' =>  [
-        //         'R'     =>  'kenyan_coffee\kenyan coffee rg.ttf',
-        //         'I'     =>  'kenyan_coffee\kenyan coffee rg it.ttf',
-        //         'B'     =>  'kenyan_coffee\kenyan coffee bd.ttf',
-        //         'BI'    =>  'kenyan_coffee\kenyan coffee bd it.ttf'
-        //     ],
-        //     'lato'          =>  [
-        //         'R'     =>  'lato\Lato-Regular.ttf',
-        //         'I'     =>  'lato\Lato-Italic.ttf',
-        //         'B'     =>  'lato\Lato-Bold.ttf',
-        //         'BI'    =>  'lato\Lato-BoldItalic.ttf',
-        //     ],
+        $config['fontDir'] = str_replace('/', '\\', str_replace('\\', '/', ROOT_DIR) . "/assets/fonts/");
+        $config['fontdata'] = [
+            'open_sans'     =>  [
+                'R'     =>  'open-sans/OpenSans-Regular.ttf',
+                'I'     =>  'open-sans/OpenSans-Italic.ttf',
+                'B'     =>  'open-sans/OpenSans-Bold.ttf',
+                'BI'    =>  'open-sans/OpenSans-BoldItalic.ttf',
+            ],
+            'kenyan_coffee' =>  [
+                'R'     =>  'kenyan_coffee/kenyan coffee rg.ttf',
+                'I'     =>  'kenyan_coffee/kenyan coffee rg it.ttf',
+                'B'     =>  'kenyan_coffee/kenyan coffee bd.ttf',
+                'BI'    =>  'kenyan_coffee/kenyan coffee bd it.ttf'
+            ],
+            'lato'          =>  [
+                'R'     =>  'lato/Lato-Regular.ttf',
+                'I'     =>  'lato/Lato-Italic.ttf',
+                'B'     =>  'lato/Lato-Bold.ttf',
+                'BI'    =>  'lato/Lato-BoldItalic.ttf',
+            ],
 
-        // ];
+        ];
 
-        // $config['default_font'] = 'lato';
+        $config['fontDir'] = str_replace('\\', '/', $config['fontDir']);
+
+        $config['default_font'] = 'lato';
 
         // echo "<pre>";print_r($config);die;
         

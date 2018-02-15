@@ -168,7 +168,7 @@ class Registration extends MY_Controller{
 		// echo ROOT_DIR;die;
 		$data['root'] = str_replace('\\', '/', ROOT_DIR);
 
-		$member = $this->db->get_where('individual_member', ['id'	=> 1])->row();
+		$member = $this->db->get_where('individual_member', ['id'	=> 3])->row();
 		$data['firstname'] = $member->firstname;
 		$data['lastname'] = $member->lastname;
 		$data['member_no'] = $member->membership_no;
