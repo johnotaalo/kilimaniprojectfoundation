@@ -28,14 +28,29 @@ class Registration extends MY_Controller{
 
 		$v_data['firstname'] = $member->firstname;
 		$v_data['lastname'] = $member->lastname;
+		$v_data['member_no'] = $member->membership_no;
+		$v_data['date_joined'] = $member->created_at;
+		$v_data['member_photo'] = $member->photo;
 
 		$message = $this->load->view('Template/emails/welcome_individual', $v_data, true);
+		$content = $this->load->view('Template/pdf/member', $v_data, true);
+		$member_pdf = $this->pdf->generate($content, 'L', 'S');
 
 		$recepient = new StdClass;
 
 		$recepient->email = $member->email;
 		$recepient->name = "{$member->firstname} {$member->lastname}";
-		$this->mail->send("Kilimani Welcomes You!", $recepient, $message);
+
+		$attachment = new Attachment();
+		$attachment->file = $member_pdf;
+		$attachment->file_type = 'content';
+		$attachment->is_path = false;
+		$attachment->file_name = "{$v_data['firstname']} {$v_data['lastname']}.pdf";
+		$attachment->mime_type = 'application/pdf';
+
+		$attachments[] = $attachment;
+
+		$this->mail->send("Kilimani Welcomes You!", $recepient, $message, $attachments);
 
 		$this->cart->destroy();
 	}
@@ -152,8 +167,14 @@ class Registration extends MY_Controller{
 	function test($transaction_code = null){
 		// echo ROOT_DIR;die;
 		$data['root'] = str_replace('\\', '/', ROOT_DIR);
-		$data['firstname'] = "Chrispine";
-		$data['lastname'] = "Otaalo";
+
+		$member = $this->db->get_where('individual_member', ['id'	=> 1])->row();
+		$data['firstname'] = $member->firstname;
+		$data['lastname'] = $member->lastname;
+		$data['member_no'] = $member->membership_no;
+		$data['date_joined'] = $member->created_at;
+		$data['member_photo'] = $member->photo;
+
 
 		$content = $this->load->view('Template/pdf/member', $data, true);
 		$sample_pdf = $this->pdf->generate($content, 'L');
@@ -231,5 +252,19 @@ class Registration extends MY_Controller{
 
 	function generateToken(){
 		$token = $this->mpesa->generate_token();
+	}
+
+	function member($member_no){
+		$data = [];
+		$this->db->where('membership_no', $member_no);
+		$member = $this->db->get('individual_member')->row();
+		$data['root'] = str_replace('\\', '/', ROOT_DIR);
+
+		if($member){
+			$data['member'] = $member;
+			$this->load->view('Template/member/member_v', $data);
+		}else{
+			show_error('This member does not exist!', 404, 'Member not found');
+		}
 	}
 }

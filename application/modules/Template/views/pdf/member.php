@@ -4,41 +4,53 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <div style = "text-align: center;margin-bottom: 10px;">
-        <img src = "<?= @base_url('assets/img/Logo.png'); ?>" style = "width: 100px;display: block;margin-left: auto;margin-right: auto;"/>
-    </div>
-    <div class="member-section" style = "float: left;width: 100%;">
-        <div class="col-9" style = "height: 600px;">
-            <!-- <div style = "position: absolute;background-color: #000;width:50px;height:50px;"></div> -->
-            <div style = "background-image: url(http://www.kilimani.co.ke/wp-content/uploads/revslider/home-v1/mageeks-1024x680.jpg);height: 600px;"></div>
+    <div class = "main-card">
+        <div style = "text-align: center;margin-bottom: 10px;">
+            <img src = "<?= @base_url('assets/img/reverse_logo.png'); ?>" style = "width: 50px;display: block;margin-top: 4px;margin-left: auto;margin-right: auto;"/>
+            <h2 style = "margin-bottom: 0;">MEMBERSHIP CARD</h2>
+            <h3  style = "margin-top: 0;"><?= @$member_no; ?></h3>
         </div>
-        <div class="col-3">
-            <div style = "margin-bottom: 15px; background-color: rgb(149,216,231);">
-                <img src = "<?= @str_replace($root, base_url(), "C:/Users/chriz/xampp/htdocs/kilimani/uploads/314eda5812496eb471ee65121fc1923b.png"); ?>" class = "member-photo"/>
-            </div>
-            <div class="member-details">
-                <p>Name</p>
-                <h3>CHRISPINE OTAALO JOHN</h3>
 
-                <p>Membership No.</p>
-                <h3><?= @rand(0, 99999999); ?></h3>
-
-                <p>Date Joined</p>
-                <h3><?= @date('d-m-Y'); ?></h3>
-
-                <p>Expiry date</p>
-                <h3><?= @date('d-m-Y', strtotime('+1 year')); ?></h3>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <!-- <td class = "head">owner</td> -->
+                <td colspan = "4" style = "text-align: center;"><h3><?= @"{$firstname} {$lastname}"; ?></h3></td>
+            </tr>
+            <tr>
+                <td class = "head">valid dates</td>
+                <td><h3><?= @date('m/Y', strtotime($date_joined)); ?> to <?= @date('m/Y', strtotime($date_joined . "+1 year")); ?></h3></td>
+                <td class = "head">member since</td>
+                <td><h3><?= @date('m/Y', strtotime($date_joined)); ?></h3></td>
+            </tr>
+        </table>
+        
+        <p style = "text-align: center;font-size: 10px;"><i>Proud Member of Kilimani Project Foundation<i></p>
     </div>
 
-    <htmlpagefooter name="myFooter1">
-        <div width="100%" style = "background-color: rgb(0,0,0);padding: 10px;text-align: center;color: rgb(253,154,43);">
-            <p>Proud member of Kilimani Project Foundation</p>
-        </div>
-    </htmlpagefooter>
+    <div class = "qr-code-holder">
+        <?php
+            // CHart Type
+            $cht = "qr";
+            // CHart Size
+            $chs = "300x300";
+            // CHart Link
+            // the url-encoded string you want to change into a QR code
+            $chl = urlencode($this->config->item('server_url') . 'Registration/member/' . $member_no);
+            // CHart Output Encoding (optional)
+            // default: UTF-8
+            $choe = "UTF-8";
+            $qrcode = 'https://chart.googleapis.com/chart?cht=' . $cht . '&chs=' . $chs . '&chl=' . $chl . '&choe=' . $choe;
+        ?>
+        <img src = "<?= @$qrcode; ?>" />
+    </div>
 
-    <!-- <sethtmlpagefooter name="myFooter1" value="on" /> -->
+    <?php if($member_photo): ?>
+        <div class = "profile-photo-holder">
+        <img src = "<?= @str_replace($root, base_url(), $member_photo); ?>" class = "member-photo"/>
+        </div>
+    <?php endif; ?>
+
+    
 </body>
 </html>
 

@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 if (ini_get('date.timezone') == '') {
-    date_default_timezone_set('Africa/Nairobis');
+    date_default_timezone_set('Africa/Nairobi');
 }
 define('ROOT_DIR', __DIR__);
 /**

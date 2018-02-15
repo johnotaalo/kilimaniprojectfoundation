@@ -38,6 +38,7 @@ class Admin extends DashboardController{
     }
 
     function addTransactionCode(){
+        $this->load->library('Pdf');
         $member = new StdClass;
 
         $member->first_time_code = $this->input->post('value');
@@ -49,15 +50,30 @@ class Admin extends DashboardController{
         $member = $this->db->get('individual_member')->row();
 
         $v_data['firstname'] = $member->firstname;
-		$v_data['lastname'] = $member->lastname;
+        $v_data['lastname'] = $member->lastname;
+        $v_data['member_no'] = $member->membership_no;
+		$v_data['date_joined'] = $member->created_at;
+		$v_data['member_photo'] = $member->photo;
 
-		$message = $this->load->view('Template/emails/welcome_individual', $v_data, true);
+        $message = $this->load->view('Template/emails/welcome_individual', $v_data, true);
+        $content = $this->load->view('Template/pdf/member', $v_data, true);
+		$member_pdf = $this->pdf->generate($content, 'L', 'S');
 
 		$recepient = new StdClass;
 
 		$recepient->email = $member->email;
-		$recepient->name = "{$member->firstname} {$member->lastname}";
-		$this->mail->send("Kilimani Welcomes You!", $recepient, $message);
+        $recepient->name = "{$member->firstname} {$member->lastname}";
+        
+		$attachment = new Attachment();
+		$attachment->file = $member_pdf;
+		$attachment->file_type = 'content';
+		$attachment->is_path = false;
+		$attachment->file_name = "{$v_data['firstname']} {$v_data['lastname']}.pdf";
+		$attachment->mime_type = 'application/pdf';
+
+		$attachments[] = $attachment;
+
+		$this->mail->send("Kilimani Welcomes You!", $recepient, $message, $attachments);
     }
 
     function addmember(){
